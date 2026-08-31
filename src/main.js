@@ -1,5 +1,4 @@
 const API_KEY = import.meta.env.VITE_NASA_API_KEY;
-document.querySelector("#app").innerHTML = '<p>houston, we are almost there...<p>';
 
 function fetchDate() {
   const DATE = document.getElementById("apod").value;
