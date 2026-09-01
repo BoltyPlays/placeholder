@@ -22,23 +22,30 @@ img {
 }
 body::before,
 body::after {
-  clip-path: polygon(
-  0 0,
-  100% 0,
-  100% 5%,
-  85% 7.5%,
-  100% 10%,
-  100% 0,
-  85% 2.5%,
-  100% 5%,
-  100% 10%,
-  0 100%
-  );
   content: '';
   position: fixed;
   top: 0;
   z-index: -1;
-  width: 900px;
+  width: 1500px;
   height: 100%;
-  background: #b0ffe2
+}
+/* credits: https://css-tricks.com/stripes-css/ */
+.stripes {
+  background: repeating-linear-gradient(
+    45deg,
+    #b0ffe2,
+    #b0ffe2 50px,
+    #2c6651 150px,
+    #2c6651 120px
+  );
+}
+.clearwhite {
+  background: radial-gradient(
+    circle,
+    #ebeaea,
+    #ebeaea 50%,
+    #ffffff 50%, 
+    #ffffff
+  );
+  background-size: 20px 20px;
 }

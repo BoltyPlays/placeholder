@@ -8,15 +8,19 @@ function fetchDate() {
       let media;
       if(data.media_type === "image") {
         media = `<img src="${data.url}"/>`;
+      } else if (data.url.includes("youtube")) {
+        media = `<iframe width="960" height="540" src="${data.url}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`;
       } else if (data.media_type === "video") {
         media = `<video src="${data.url}" controls></video>`;
-      } else if (data.url.includes("youtube")) {
-        media = `<iframe width="560" height="315" src="${data.url}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`;
       }
       document.querySelector("#app").innerHTML=`
-        <h1>${data.title}</h1>
+        <div class="clearwhite">
+          <h1>${data.title}</h1>
+        </div>
         ${media}
-        <p>${data.explanation}</p>
+        <div class="clearwhite">
+          <p>${data.explanation}</p>
+        </div>
       `;
     })
     .catch(err=> {
